@@ -1,0 +1,48 @@
+@charset "ISO-8859-1";
+
+.container {
+    background-color: #FAFAFA   !important;
+	
+	
+}
+.transparente {
+    background-color:rgb(1,0,0,0);
+    opacity:1.0;
+    filter:alpha(opacity=60)
+}
+#usuario {
+	background-color: rgb(1,0,0,0);
+	border-color: black;
+	border-radius: 5px;
+	
+}
+#frmMain{
+	background-color: rgb(1,0,0,0);
+	border-color: black;
+	border-radius: 5px;
+}
+#rol{
+	background-color: rgb(1,0,0,0);
+	border-color: black;
+	border-radius: 5px;
+}
+#frmMain{
+	background-color: rgb(1,0,0,0);
+	border-color: black;
+	border-radius: 5px;
+}
+#categoria{
+	background-color: rgb(1,0,0,0);
+	border-color: black;
+	border-radius: 5px;
+}
+#producto{
+	background-color: rgb(1,0,0,0);
+	border-color: black;
+	border-radius: 5px;
+}
+#marca{
+	background-color: rgb(1,0,0,0);
+	border-color: black;
+	border-radius: 5px;
+}

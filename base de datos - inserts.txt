@@ -1,0 +1,125 @@
+insert into roles (id_rol, rol) values ('', 'Administrador');
+insert into roles (id_rol, rol) values ('', 'Empleado');
+
+insert into usuarios (id_usuario, nombre, apellido, dui, direccion, telefono, fecha_registro, fecha_modificacion, usuario, pass, id_rol)
+values ('', 'Marco', 'Abrego', '87451291-5', 'La Paz', '7845-9854', '', '', 'marabre', 'marabre12345', 1);
+insert into usuarios (id_usuario, nombre, apellido, dui, direccion, telefono, fecha_registro, fecha_modificacion, usuario, pass, id_rol)
+values ('', 'Jonathan', 'Magaña', '12457891-5', 'La Libertad', '7315-8945', '', '', 'jonmag', 'jonmag12345', 2);
+insert into usuarios (id_usuario, nombre, apellido, dui, direccion, telefono, fecha_registro, fecha_modificacion, usuario, pass, id_rol)
+values ('', 'Maria', 'Ramos', '87946121-6', 'San Salvador', '7652-4895', '', '', 'marram', 'marram12345', 2);
+
+insert into proveedores (id_proveedor, nombre_proveedor, direccion, telefono) 
+values ('', 'Adalid Mauricio', 'San Salvador', '2451-8954');
+insert into proveedores (id_proveedor, nombre_proveedor, direccion, telefono) 
+values ('', 'Henry Castaneda', 'San Salvador', '2147-8965');
+insert into proveedores (id_proveedor, nombre_proveedor, direccion, telefono) 
+values ('', 'Melvin Ruiz', 'San Salvador', '2359-8496');
+insert into proveedores (id_proveedor, nombre_proveedor, direccion, telefono) 
+values ('', 'Rene Garcia', 'San Salvador', '2589-7412');
+insert into proveedores (id_proveedor, nombre_proveedor, direccion, telefono) 
+values ('', 'Cristian Diaz', 'San Salvador', '2874-9658');
+insert into proveedores (id_proveedor, nombre_proveedor, direccion, telefono) 
+values ('', 'Jefferson Giron', 'San Salvador', '2983-3648');
+
+insert into marcas (id_marca, nombre_marca, id_proveedor)
+values ('', 'Facela', 1);
+insert into marcas (id_marca, nombre_marca, id_proveedor)
+values ('', 'Tucan', 1);
+insert into marcas (id_marca, nombre_marca, id_proveedor)
+values ('', 'Maped', 1);
+insert into marcas (id_marca, nombre_marca, id_proveedor)
+values ('', 'Noky', 2);
+insert into marcas (id_marca, nombre_marca, id_proveedor)
+values ('', 'Parrot', 2);
+insert into marcas (id_marca, nombre_marca, id_proveedor)
+values ('', 'Guscafe', 2);
+insert into marcas (id_marca, nombre_marca, id_proveedor)
+values ('', '3M Scotch', 3);
+insert into marcas (id_marca, nombre_marca, id_proveedor)
+values ('', 'American Tape', 3);
+insert into marcas (id_marca, nombre_marca, id_proveedor)
+values ('', 'Conquistador', 3);
+insert into marcas (id_marca, nombre_marca, id_proveedor)
+values ('', 'Casio', 4);
+insert into marcas (id_marca, nombre_marca, id_proveedor)
+values ('', 'Samba', 4);
+insert into marcas (id_marca, nombre_marca, id_proveedor)
+values ('', 'Mc. Carthy', 4);
+insert into marcas (id_marca, nombre_marca, id_proveedor)
+values ('', 'BIC', 5);
+insert into marcas (id_marca, nombre_marca, id_proveedor)
+values ('', 'Zebra', 5);
+insert into marcas (id_marca, nombre_marca, id_proveedor)
+values ('', 'Pilot', 5);
+insert into marcas (id_marca, nombre_marca, id_proveedor)
+values ('', 'Line Ball', 6);
+insert into marcas (id_marca, nombre_marca, id_proveedor)
+values ('', 'Mongol', 6);
+insert into marcas (id_marca, nombre_marca, id_proveedor)
+values ('', 'Artline', 6);
+
+insert into categorias (id_categoria, nombre_categoria)
+Values ('', 'Papel');
+insert into categorias (id_categoria, nombre_categoria)
+Values ('', 'Cuadernos');
+insert into categorias (id_categoria, nombre_categoria)
+Values ('', 'Libros');
+insert into categorias (id_categoria, nombre_categoria)
+Values ('', 'Pegamentos');
+insert into categorias (id_categoria, nombre_categoria)
+Values ('', 'Miscelanea');
+insert into categorias (id_categoria, nombre_categoria)
+Values ('', 'Calculadoras');
+insert into categorias (id_categoria, nombre_categoria)
+Values ('', 'Adhesivos');
+insert into categorias (id_categoria, nombre_categoria)
+Values ('', 'Bolsones');
+insert into categorias (id_categoria, nombre_categoria)
+Values ('', 'Juguetes');
+insert into categorias (id_categoria, nombre_categoria)
+Values ('', 'Pinturas');
+
+insert into productos(nombre_producto, presentacion, id_marca, id_categoria) 
+values ("Papel lustre", "Pliego", 6, 1);
+insert into productos(nombre_producto, presentacion, id_marca, id_categoria) 
+values ("Papel estaño", "Pliego", 6, 1);
+insert into productos(nombre_producto, presentacion, id_marca, id_categoria) 
+values ("Cuaderno #1", "Espiral", 9, 2);
+insert into productos(nombre_producto, presentacion, id_marca, id_categoria) 
+values ("Cuaderno 200 pag", "Engrapado pequeño", 9, 2);
+insert into productos(nombre_producto, presentacion, id_marca, id_categoria) 
+values ("Cuaderno 200 pag", "Cosido pequeño", 9, 2);
+insert into productos(nombre_producto, presentacion, id_marca, id_categoria) 
+values ("Pegamento 1 onza", "Bote", 4, 4);
+insert into productos(nombre_producto, presentacion, id_marca, id_categoria) 
+values ("Pegamento 22 gramos", "Barra", 1, 4);
+
+insert into entrada(cantidad, id_producto) 
+values (50, 1);
+insert into entrada(cantidad, id_producto) 
+values (50, 2);
+insert into entrada(cantidad, id_producto) 
+values (50, 3);
+insert into entrada(cantidad, id_producto) 
+values (50, 4);
+insert into entrada(cantidad, id_producto) 
+values (50, 5);
+insert into entrada(cantidad, id_producto) 
+values (50, 6);
+insert into entrada(cantidad, id_producto) 
+values (50, 7);
+
+insert into salidas(cantidad, id_producto) 
+values (25, 1);
+insert into salidas(cantidad, id_producto) 
+values (25, 2);
+insert into salidas(cantidad, id_producto) 
+values (25, 3);
+insert into salidas(cantidad, id_producto) 
+values (25, 4);
+insert into salidas(cantidad, id_producto) 
+values (25, 5);
+insert into salidas(cantidad, id_producto) 
+values (25, 6);
+insert into salidas(cantidad, id_producto) 
+values (25, 7);

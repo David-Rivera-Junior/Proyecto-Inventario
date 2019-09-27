@@ -1,0 +1,96 @@
+create database inventario;
+use inventario;
+
+create table roles(
+	id_rol bigint(10) not null auto_increment,
+    rol varchar(50) not null,
+    primary key (id_rol)
+);
+
+create table usuarios(
+	id_usuario bigint(10) not null auto_increment,
+    nombre varchar(50) not null, 
+    apellido varchar(50) not null,
+    dui varchar(10) not null,
+    direccion varchar(250) default null,
+    telefono varchar(20) not null, 
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fecha_modificacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    usuario varchar(20) not null,
+    pass varchar(20) not null, 
+    id_rol bigint(10) not null,
+    primary key (id_usuario),
+    constraint fk_id_rol foreign key (id_rol)
+    references roles (id_rol) on delete cascade
+);
+
+create table proveedores(
+	id_proveedor bigint(10) not null auto_increment,
+    nombre_proveedor varchar(200),
+    direccion varchar(250) default null,
+    telefono varchar(20),
+    primary key (id_proveedor) 
+);
+
+create table marcas(
+    id_marca bigint(20) not null auto_increment,
+    nombre_marca varchar(50) not null,
+	id_proveedor bigint(10) not null,
+    primary key (id_marca),
+	constraint fk_id_proveedor foreign key (id_proveedor)
+	references proveedores (id_proveedor) on delete cascade
+);
+
+create table categorias(
+	id_categoria bigint(20) not null AUTO_INCREMENT,
+    nombre_categoria varchar(50) not null,
+    PRIMARY KEY(id_categoria)
+);
+
+CREATE TABLE productos (
+	id_producto bigint (20) NOT NULL AUTO_INCREMENT,
+    nombre_producto varchar (100) NOT NULL,
+	presentacion varchar (100) not null,
+	cantidad bigint (10) DEFAULT 0,
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fecha_modificacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    id_marca bigint(20) not null,
+    id_categoria bigint(20) not null,
+    PRIMARY KEY (id_producto),
+	constraint fk_id_categoria foreign key (id_categoria)
+	references categorias (id_categoria) on delete cascade,
+	constraint fk_id_marca foreign key (id_marca)
+	references marcas (id_marca) on delete cascade
+);
+
+CREATE TABLE entrada (
+    id_entrada bigint (50) NOT NULL AUTO_INCREMENT,
+    cantidad bigint (10) NOT NULL,
+    fecha_entrada TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fecha_modificacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	id_producto bigint (20) NOT NULL,
+    PRIMARY KEY (id_entrada),  
+	constraint fk_id_productos foreign key (id_producto)
+	references productos (id_producto) on delete cascade               
+);
+
+create table salidas (
+	id_salida bigint(50) not null AUTO_INCREMENT,
+    cantidad bigint(10) not null,
+    fecha_salida TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fecha_modificacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    id_producto bigint (20) NOT NULL,
+    primary key (id_salida),
+    constraint fk_producto_id foreign key (id_producto)
+	references productos (id_producto) on delete cascade
+);
+
+CREATE TRIGGER aumentoExistencias AFTER INSERT ON entrada
+FOR EACH ROW update productos set cantidad = (productos.cantidad + NEW.cantidad) 
+WHERE new.id_producto = productos.id_producto;
+
+CREATE TRIGGER disminucionExistencias AFTER INSERT ON salidas 
+FOR EACH ROW update productos set cantidad = (productos.cantidad - NEW.cantidad) 
+WHERE new.id_producto = productos.id_producto;
+
+		
